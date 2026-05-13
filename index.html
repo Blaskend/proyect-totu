@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOTU - Tótem Observacional del Tiempo Universal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js para visualización 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>TOTU</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="sobre-mi.html"><i class="fas fa-user"></i> Sobre mí</a></li>
+                    <li><a href="lenguas.html"><i class="fas fa-language"></i> Lenguas</a></li>
+                    <li><a href="braille.html"><i class="fas fa-hand-sparkles"></i> Braille</a></li>
+                    <li><a href="tiempo.html"><i class="fas fa-cloud-sun"></i> Tiempo</a></li>
+                    <li><a href="producto.html"><i class="fas fa-box-open"></i> Producto</a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-leaf"></i> Ecosostenible & Inclusivo
+                </div>
+                <h1>Tótem Observacional del Tiempo Universal</h1>
+                <p class="hero-subtitle">Avisándote del tiempo; todo el tiempo. Información meteorológica simple, económica, inclusiva y ecosostenible para todas las comunidades.</p>
+                
+                <div class="hero-features">
+                    <span class="feature-tag"><i class="fas fa-recycle"></i> 20 botellas recicladas</span>
+                    <span class="feature-tag"><i class="fas fa-hand-sparkles"></i> Sistema Braille</span>
+                    <span class="feature-tag"><i class="fas fa-language"></i> Lenguas Originarias</span>
+                    <span class="feature-tag"><i class="fas fa-volume-up"></i> Audio</span>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="tiempo.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-cloud-sun"></i> Ver Tiempo
+                    </a>
+                    <a href="lenguas.html" class="btn btn-accent btn-lg">
+                        <i class="fas fa-language"></i> Lenguas Originarias
+                    </a>
+                    <a href="producto.html" class="btn btn-secondary btn-lg" style="background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); color: white;">
+                        <i class="fas fa-box-open"></i> Conocer Producto
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="totem-device">
+                    <div class="totem-screen">
+                        <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                        <div class="temp-display">28°C</div>
+                        <div class="weather-desc">Tatái</div>
+                    </div>
+                    <div class="totem-lights">
+                        <span class="light green"></span>
+                        <span class="light yellow"></span>
+                        <span class="light red"></span>
+                    </div>
+                    <div class="braille-dots">⠎⠕⠇</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualizador 3D del TOTU -->
+    <section class="section section-dark" id="totu-explorer" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%); color: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-cube"></i> Explora el TOTU en 3D</h2>
+                <p>Desarma el dispositivo, activa el clima simulado y descubre cada componente</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 16px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); min-height: 550px;">
+                <!-- Controles -->
+                <div style="grid-column: 1 / -1; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <button class="btn btn-primary" id="btn-explode" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
+                        <i class="fas fa-expand-arrows-alt"></i> Desarmar
+                    </button>
+                    <button class="btn btn-secondary" id="btn-assemble" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
+                        <i class="fas fa-compress-arrows-alt"></i> Armar
+                    </button>
+                    <button class="btn btn-accent" id="btn-rotate" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
+                        <i class="fas fa-sync-alt"></i> Auto-rotar
+                    </button>
+                    <button class="btn" id="btn-weather" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                        <i class="fas fa-sun"></i> <span id="weather-label">Soleado</span>
+                    </button>
+                    <button class="btn" id="btn-sound" title="Activar/Desactivar sonido" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer;">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </div>
+
+                <!-- Canvas 3D -->
+                <div style="position: relative; grid-row: 2; border-radius: 12px; overflow: hidden; background: linear-gradient(145deg, rgba(0,0,0,0.3) 0%, rgba(15,23,42,0.5) 100%); box-shadow: inset 0 0 50px rgba(0,0,0,0.3); min-height: 450px;">
+                    <canvas id="totu-canvas" style="width: 100%; height: 100%; display: block; cursor: grab;"></canvas>
+                    <div id="canvas-loading" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,23,42,0.9); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; z-index: 10;">
+                        <div style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.1); border-top-color: #10b981; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                        <p style="color: white;">Cargando modelo 3D...</p>
+                    </div>
+                    <div style="position: absolute; top: 15px; right: 15px; background: rgba(15,23,42,0.9); backdrop-filter: blur(10px); border-radius: 12px; padding: 0.75rem 1.25rem; border: 1px solid rgba(255,255,255,0.2); z-index: 15;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; color: white; font-weight: 600;">
+                            <i class="fas fa-sun" id="weather-icon-3d" style="font-size: 1.25rem;"></i>
+                            <span id="weather-text-3d">Soleado - 28°C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel de info -->
+                <div id="component-info" style="grid-row: 2; background: rgba(15,23,42,0.98); backdrop-filter: blur(20px); border-radius: 16px; border: 2px solid rgba(16,185,129,0.3); padding: 1.5rem; transform: translateX(-150%); opacity: 0; transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: absolute; left: 30px; top: 30px; width: 320px; z-index: 25; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(16,185,129,0.2);">
+                        <h3 id="component-title" style="color: #10b981; font-size: 1.4rem; margin: 0; font-weight: 700;">TOTU</h3>
+                        <button id="close-info-btn" style="background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.8); font-size: 1.2rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s;"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                        <div id="component-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #059669 0%, #10b981 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; box-shadow: 0 8px 25px rgba(16,185,129,0.4); flex-shrink: 0;">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div>
+                            <p id="component-description" style="color: rgba(255,255,255,0.85); line-height: 1.7; font-size: 0.95rem; margin: 0;">Haz clic en cualquier parte del dispositivo para ver su información.</p>
+                        </div>
+                    </div>
+                    <div id="component-specs" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1rem;"></div>
+                </div>
+
+                <!-- Leyenda -->
+                <div style="grid-row: 2; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); max-height: 450px; overflow-y: auto;">
+                    <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1.1rem;"><i class="fas fa-list"></i> Componentes</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-bottom: 1rem;">Toca en la lista o en el modelo 3D</p>
+                    <ul class="components-legend" style="list-style: none; padding: 0; margin: 0;">
+                        <li data-component="carcasa" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #0d9488; border-radius: 4px;"></span>
+                            <span><i class="fas fa-square"></i> Carcasa (20 botellas)</span>
+                        </li>
+                        <li data-component="pantalla" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #1f2937; border-radius: 4px;"></span>
+                            <span><i class="fas fa-tv"></i> Pantalla LCD</span>
+                        </li>
+                        <li data-component="panel-solar" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #065f46; border-radius: 4px;"></span>
+                            <span><i class="fas fa-solar-panel"></i> Panel Solar</span>
+                        </li>
+                        <li data-component="sensor-temp" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #dc2626; border-radius: 4px;"></span>
+                            <span><i class="fas fa-thermometer-half"></i> Sensor Temp</span>
+                        </li>
+                        <li data-component="sensor-hum" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #2563eb; border-radius: 4px;"></span>
+                            <span><i class="fas fa-tint"></i> Sensor Humedad</span>
+                        </li>
+                        <li data-component="sensor-pres" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #7c3aed; border-radius: 4px;"></span>
+                            <span><i class="fas fa-tachometer-alt"></i> Sensor Presión</span>
+                        </li>
+                        <li data-component="leds" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #f59e0b; border-radius: 4px;"></span>
+                            <span><i class="fas fa-lightbulb"></i> LEDs Alerta</span>
+                        </li>
+                        <li data-component="bocina" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #ea580c; border-radius: 4px;"></span>
+                            <span><i class="fas fa-volume-up"></i> Sintetizador</span>
+                        </li>
+                        <li data-component="braille" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9);">
+                            <span style="width: 18px; height: 18px; background: #6b7280; border-radius: 4px;"></span>
+                            <span><i class="fas fa-hand-sparkles"></i> Braille</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* Panel de info - SIN SCROLL */
+        #component-info {
+            transform: translateX(-150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            height: auto;
+            max-height: none;
+            overflow: visible;
+        }
+        #component-info.active { 
+            transform: translateX(0); 
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        /* Lista de componentes */
+        .components-legend li { 
+            transition: all 0.3s ease;
+        }
+        .components-legend li:hover { 
+            background: rgba(255,255,255,0.15); 
+            transform: translateX(8px); 
+        }
+        .components-legend li.active { 
+            background: rgba(16,185,129,0.25) !important; 
+            border-left: 4px solid #10b981;
+            padding-left: calc(0.6rem - 4px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            #totu-explorer .container > div { grid-template-columns: 1fr !important; grid-template-rows: auto 350px auto !important; }
+            #component-info {
+                position: fixed !important;
+                bottom: 20px !important;
+                left: 50% !important;
+                top: auto !important;
+                transform: translateX(-50%) translateY(120%) !important;
+                width: 90% !important;
+                max-width: 380px;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            #component-info.active {
+                transform: translateX(-50%) translateY(0) !important;
+            }
+        }
+    </style>
+
+    <!-- Overview Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-seedling"></i> Descubre TOTU</h2>
+                <p>Tecnología meteorológica al servicio de todas las comunidades</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Lenguas Originarias</h3>
+                    <p>Información meteorológica en Qom, Wichí y Moqoví, llegando a más de 150,000 personas en el Chaco argentino.</p>
+                    <a href="lenguas.html" class="btn btn-primary" style="margin-top: 1rem;">
+                        <i class="fas fa-arrow-right"></i> Explorar
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Sistema Braille</h3>
+                    <p>Alertas meteorológicas accesibles para personas con discapacidad visual mediante lectura Braille integrada.</p>
+                    <a href="braille.html" class="btn btn-primary" style="margin-top: 1rem;">
+                        <i class="fas fa-arrow-right"></i> Conocer más
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Ecosostenible</h3>
+                    <p>Cada dispositivo recicla hasta 20 botellas de plástico. 90% más económico que la competencia.</p>
+                    <a href="dispositivos.html" class="btn btn-primary" style="margin-top: 1rem;">
+                        <i class="fas fa-arrow-right"></i> Ver dispositivos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto Social -->
+    <section class="section section-green">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-heart"></i> Impacto Social</h2>
+                <p>Tecnología inclusiva para comunidades del Chaco y el NEA</p>
+            </div>
+            
+            <div class="features-grid" style="color: white;">
+                <div class="feature-card" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);">
+                    <div class="feature-icon" style="background: white; color: var(--primary);">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 style="color: white;">Sector Salud</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Hospitales y sanatorios monitorean condiciones ambientales para pacientes.</p>
+                </div>
+                
+                <div class="feature-card" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);">
+                    <div class="feature-icon" style="background: white; color: var(--primary);">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 style="color: white;">Educación</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Más de 30 escuelas agrotécnicas pueden utilizar TOTU en su formación.</p>
+                </div>
+                
+                <div class="feature-card" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);">
+                    <div class="feature-icon" style="background: white; color: var(--primary);">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 style="color: white;">Agro</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Viveros y granjas del NEA acceden a datos meteorológicos precisos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>TOTU</span>
+                    </div>
+                    <p>Tótem Observacional del Tiempo Universal<br>Avisándote del tiempo; todo el tiempo.</p>
+                    <p style="margin-top: 1rem; font-size: 0.8rem;">ITESA "Jorge A. Newbery" - Resistencia, Chaco</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="sobre-mi.html"><i class="fas fa-chevron-right"></i> Sobre mí</a></li>
+                        <li><a href="lenguas.html"><i class="fas fa-chevron-right"></i> Lenguas Originarias</a></li>
+                        <li><a href="braille.html"><i class="fas fa-chevron-right"></i> Sistema Braille</a></li>
+                        <li><a href="tiempo.html"><i class="fas fa-chevron-right"></i> Tiempo Actual</a></li>
+                        <li><a href="producto.html"><i class="fas fa-chevron-right"></i> El Producto</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-lenguas">
+                    <h4>Lenguas</h4>
+                    <div>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Qom</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Wichí</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Moqoví</span>
+                        <span class="lengua-tag"><i class="fas fa-braille"></i> Braille</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="mailto:totu.proyecto@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOTU Project. Todos los derechos reservados.</p>
+                <p>Desarrollado con <i class="fas fa-heart" style="color: #86efac;"></i> en Resistencia, Chaco</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('totu-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('totu-theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+        
+        function updateThemeIcon(theme) {
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) {
+                    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                }
+            }
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        initTheme();
+    </script>
+
+    <!-- Three.js TOTU 3D Explorer -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // Audio Controller
+        const AudioCtrl = {
+            ctx: null, enabled: true,
+            init() {
+                if (!this.ctx) {
+                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (this.ctx.state === 'suspended') this.ctx.resume();
+            },
+            playTone(freq, dur, type, vol=0.1) {
+                if (!this.enabled || !this.ctx) return;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.frequency.value = freq;
+                osc.type = type;
+                gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + dur);
+                osc.start();
+                osc.stop(this.ctx.currentTime + dur);
+            },
+            playClick() { this.playTone(600, 0.05, 'sine', 0.03); },
+            playHover() { /* Silenciado - era molesto */ },
+            playExplode() {
+                [300, 250, 200, 150].forEach((f, i) => setTimeout(() => this.playTone(f, 0.1, 'sawtooth', 0.05), i * 80));
+            },
+            playAssemble() {
+                [200, 300, 450, 600, 800].forEach((f, i) => setTimeout(() => this.playTone(f, 0.1, 'sine', 0.05), i * 100));
+            },
+            playRain() {
+                if (!this.enabled || !this.ctx) return;
+                const bufferSize = 2 * this.ctx.sampleRate;
+                const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.value = 800;
+                const gain = this.ctx.createGain();
+                gain.gain.value = 0.02;
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+                noise.start();
+                noise.stop(this.ctx.currentTime + 1.5);
+            },
+            playThunder() {
+                if (!this.enabled || !this.ctx) return;
+                const bufferSize = 3 * this.ctx.sampleRate;
+                const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (this.ctx.sampleRate * 0.5));
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.value = 200;
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 1.5);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+                noise.start();
+                noise.stop(this.ctx.currentTime + 1.5);
+            },
+            playWind() {
+                if (!this.enabled || !this.ctx) return;
+                const bufferSize = 2 * this.ctx.sampleRate;
+                const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.5;
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.value = 300;
+                filter.Q.value = 0.3;
+                const gain = this.ctx.createGain();
+                gain.gain.value = 0.02;
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+                noise.start();
+                noise.stop(this.ctx.currentTime + 1.5);
+            },
+            playSunny() {
+                [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => setTimeout(() => this.playTone(f, 0.15, 'sine', 0.03), i * 150));
+            },
+            toggle() { this.enabled = !this.enabled; return this.enabled; }
+        };
+
+        // Weather System
+        const WeatherSys = {
+            current: 'sunny', particles: [],
+            states: {
+                sunny: { icon: 'fa-sun', color: '#fbbf24', temp: 28, label: 'Soleado' },
+                rainy: { icon: 'fa-cloud-rain', color: '#60a5fa', temp: 22, label: 'Lluvia' },
+                stormy: { icon: 'fa-bolt', color: '#a78bfa', temp: 20, label: 'Tormenta' },
+                cloudy: { icon: 'fa-cloud', color: '#9ca3af', temp: 24, label: 'Nublado' },
+                windy: { icon: 'fa-wind', color: '#34d399', temp: 26, label: 'Ventoso' }
+            },
+            setWeather(type) {
+                if (!this.states[type]) return;
+                this.current = type;
+                const state = this.states[type];
+                document.getElementById('weather-icon-3d').className = `fas ${state.icon}`;
+                document.getElementById('weather-text-3d').textContent = `${state.label} - ${state.temp}°C`;
+                document.getElementById('weather-label').textContent = state.label;
+                updateScreen(type, state.temp);
+                updateLEDs(type);
+                switch(type) {
+                    case 'rainy': AudioCtrl.playRain(); break;
+                    case 'stormy': AudioCtrl.playThunder(); break;
+                    case 'windy': AudioCtrl.playWind(); break;
+                    case 'sunny': AudioCtrl.playSunny(); break;
+                }
+                this.createParticles(type);
+            },
+            cycle() {
+                const types = Object.keys(this.states);
+                this.setWeather(types[(types.indexOf(this.current) + 1) % types.length]);
+            },
+            createParticles(type) {
+                this.particles.forEach(p => scene.remove(p.mesh));
+                this.particles = [];
+                if (type === 'sunny') return;
+                const count = type === 'stormy' ? 200 : (type === 'rainy' ? 150 : 50);
+                for (let i = 0; i < count; i++) {
+                    let geo, mat;
+                    if (type === 'rainy' || type === 'stormy') {
+                        geo = new THREE.CylinderGeometry(0.02, 0.02, 0.3, 4);
+                        mat = new THREE.MeshBasicMaterial({ color: type === 'stormy' ? 0x8811ff : 0x4488ff, transparent: true, opacity: 0.6 });
+                    } else if (type === 'windy') {
+                        geo = new THREE.PlaneGeometry(0.1, 0.02);
+                        mat = new THREE.MeshBasicMaterial({ color: 0xaaffaa, transparent: true, opacity: 0.4, side: THREE.DoubleSide });
+                    } else {
+                        geo = new THREE.SphereGeometry(0.05, 6, 6);
+                        mat = new THREE.MeshBasicMaterial({ color: 0xaaaaaa, transparent: true, opacity: 0.5 });
+                    }
+                    const mesh = new THREE.Mesh(geo, mat);
+                    mesh.position.set((Math.random() - 0.5) * 15, 8 + Math.random() * 5, (Math.random() - 0.5) * 15);
+                    mesh.userData = { velocity: { x: (Math.random() - 0.5) * 0.1, y: -(0.1 + Math.random() * 0.2), z: (Math.random() - 0.5) * 0.1 } };
+                    if (type === 'windy') { mesh.userData.velocity.x = 0.3 + Math.random() * 0.2; mesh.userData.velocity.y = (Math.random() - 0.5) * 0.05; }
+                    this.particles.push({ mesh, type });
+                    scene.add(mesh);
+                }
+            },
+            update() {
+                this.particles.forEach(p => {
+                    p.mesh.position.add(p.mesh.userData.velocity);
+                    if (p.mesh.position.y < -2) { p.mesh.position.y = 8 + Math.random() * 5; p.mesh.position.x = (Math.random() - 0.5) * 15; p.mesh.position.z = (Math.random() - 0.5) * 15; }
+                    if (p.type === 'windy' && p.mesh.position.x > 10) p.mesh.position.x = -10;
+                });
+            }
+        };
+
+        // Three.js variables
+        let scene, camera, renderer, controls, totuGroup = {}, components = {}, screenTexture, screenCtx;
+        let isExploded = false, isAutoRotating = true, raycaster, mouse, hovered = null, selected = null;
+        const originalPos = {}, explodedPos = {
+            'carcasa': { x: 0, y: 0, z: 0 }, 'pantalla': { x: -2.5, y: 0.5, z: 1.2 }, 'panel-solar': { x: 0, y: 3.5, z: 0 },
+            'sensor-temp': { x: 2.8, y: 1.2, z: 0.5 }, 'sensor-hum': { x: 2.8, y: -0.3, z: 0.5 }, 'sensor-pres': { x: 2.8, y: -1.8, z: 0.5 },
+            'leds': { x: -2.8, y: -0.8, z: 0.5 }, 'bocina': { x: -3.5, y: -0.8, z: 0.5 }, 'braille': { x: 0, y: -3.2, z: 1.2 }
+        };
+
+        const compInfo = {
+            'carcasa': { title: 'Carcasa Ecosostenible', icon: 'fa-square', desc: 'Estructura fabricada con 20 botellas de plástico recicladas (PET). Resistente a la intemperie.', specs: [{l:'Material',v:'PET Reciclado'},{l:'Botellas',v:'20 unidades'},{l:'Resistencia',v:'IP65'},{l:'Vida útil',v:'10+ años'}] },
+            'pantalla': { title: 'Pantalla LCD Inteligente', icon: 'fa-tv', desc: 'Display LCD transflectiva de bajo consumo con animaciones según el clima.', specs: [{l:'Tipo',v:'LCD Transflectiva'},{l:'Tamaño',v:'3.5 pulgadas'},{l:'Consumo',v:'0.5W'},{l:'Actualización',v:'Cada 5 min'}] },
+            'panel-solar': { title: 'Panel Solar Fotovoltaico', icon: 'fa-solar-panel', desc: 'Celda monocristalina de alta eficiencia. Autonomía completa con batería de respaldo.', specs: [{l:'Potencia',v:'10W'},{l:'Voltaje',v:'12V'},{l:'Eficiencia',v:'20%'},{l:'Batería',v:'Li-Ion 7.4Ah'}] },
+            'sensor-temp': { title: 'Sensor de Temperatura', icon: 'fa-thermometer-half', desc: 'DHT22 de alta precisión. Rango extendido para climas extremos del Chaco.', specs: [{l:'Modelo',v:'DHT22'},{l:'Rango',v:'-40°C a +80°C'},{l:'Precisión',v:'±0.5°C'},{l:'Respuesta',v:'<2 seg'}] },
+            'sensor-hum': { title: 'Sensor de Humedad', icon: 'fa-tint', desc: 'Sensor capacitivo fundamental para agricultura y predicción de lluvias.', specs: [{l:'Modelo',v:'DHT22'},{l:'Rango',v:'0-100% RH'},{l:'Precisión',v:'±2% RH'},{l:'Histeresis',v:'<0.5% RH'}] },
+            'sensor-pres': { title: 'Sensor de Presión', icon: 'fa-tachometer-alt', desc: 'BMP280 MEMS para predicción meteorológica hasta 12 horas antes.', specs: [{l:'Modelo',v:'BMP280'},{l:'Rango',v:'300-1100 hPa'},{l:'Precisión',v:'±1 hPa'},{l:'Altitud',v:'±1 metro'}] },
+            'leds': { title: 'Sistema de LEDs', icon: 'fa-lightbulb', desc: 'Tres LEDs RGB: Verde (normal), Amarillo (advertencia), Rojo (alerta).', specs: [{l:'Tipo',v:'LED RGB 5mm'},{l:'Cantidad',v:'3 unidades'},{l:'Brillo',v:'1000 mcd'},{l:'Ángulo',v:'120°'}] },
+            'bocina': { title: 'Sintetizador Multilingüe', icon: 'fa-volume-up', desc: 'TTS con bocina 3W. Anuncia en español, Qom, Wichí y Moqoví.', specs: [{l:'Potencia',v:'3W'},{l:'Idiomas',v:'4 lenguas'},{l:'Volumen',v:'85 dB'},{l:'Alcance',v:'50 metros'}] },
+            'braille': { title: 'Display Braille', icon: 'fa-hand-sparkles', desc: 'Dos células refreshables de 8 puntos para personas con discapacidad visual.', specs: [{l:'Células',v:'2 unidades'},{l:'Puntos',v:'8 por célula'},{l:'Refresco',v:'200 ms'},{l:'Estandar',v:'UEB Braille'}] }
+        };
+
+        function init() {
+            AudioCtrl.init();
+            const container = document.getElementById('totu-canvas').parentElement;
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0f172a);
+            scene.fog = new THREE.Fog(0x0f172a, 10, 50);
+            camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+            camera.position.set(8, 6, 10);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('totu-canvas'), antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.minDistance = 5;
+            controls.maxDistance = 25;
+            controls.maxPolarAngle = Math.PI / 1.8;
+            scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            dirLight.position.set(5, 10, 7);
+            dirLight.castShadow = true;
+            dirLight.shadow.mapSize.width = 2048;
+            dirLight.shadow.mapSize.height = 2048;
+            scene.add(dirLight);
+            scene.add(new THREE.PointLight(0x10b981, 0.4, 15).position.set(-5, 5, -5));
+            scene.add(new THREE.PointLight(0x0d9488, 0.3, 15).position.set(5, 3, 5));
+            createTOTU();
+            raycaster = new THREE.Raycaster();
+            mouse = new THREE.Vector2();
+            document.getElementById('totu-canvas').addEventListener('mousemove', onMove);
+            document.getElementById('totu-canvas').addEventListener('click', onClick);
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+            setTimeout(() => document.getElementById('canvas-loading').style.display = 'none', 800);
+            animate();
+        }
+
+        function createTOTU() {
+            const group = new THREE.Group();
+            // Carcasa
+            const carcasaGeo = new THREE.BoxGeometry(3, 4, 2);
+            const carcasaMat = new THREE.MeshStandardMaterial({ color: 0x0d9488, roughness: 0.5, metalness: 0.2, transparent: true, opacity: 0.95 });
+            components['carcasa'] = new THREE.Mesh(carcasaGeo, carcasaMat);
+            components['carcasa'].userData = { name: 'carcasa' };
+            components['carcasa'].castShadow = true;
+            group.add(components['carcasa']);
+            originalPos['carcasa'] = components['carcasa'].position.clone();
+            // Pantalla
+            const screenCanvas = document.createElement('canvas');
+            screenCanvas.width = 512;
+            screenCanvas.height = 384;
+            screenCtx = screenCanvas.getContext('2d');
+            screenTexture = new THREE.CanvasTexture(screenCanvas);
+            screenTexture.minFilter = THREE.LinearFilter;
+            screenTexture.magFilter = THREE.LinearFilter;
+            const pantallaGeo = new THREE.PlaneGeometry(2, 1.5);
+            const pantallaMat = new THREE.MeshStandardMaterial({ 
+                map: screenTexture, 
+                emissive: 0xffffff, 
+                emissiveMap: screenTexture, 
+                emissiveIntensity: 1.2, 
+                roughness: 0.1,
+                metalness: 0.1,
+                transparent: true,
+                opacity: 1
+            });
+            components['pantalla'] = new THREE.Mesh(pantallaGeo, pantallaMat);
+            components['pantalla'].position.set(0, 0.5, 1.2);
+            components['pantalla'].userData = { name: 'pantalla' };
+            components['pantalla'].renderOrder = 10;
+            components['pantalla'].material.depthTest = false;
+            group.add(components['pantalla']);
+            originalPos['pantalla'] = components['pantalla'].position.clone();
+            // Marco pantalla
+            const marco = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.7, 0.1), new THREE.MeshStandardMaterial({ color: 0x064e3b }));
+            marco.position.set(0, 0.5, 0.98);
+            components['carcasa'].add(marco);
+            // Panel solar
+            const panelGeo = new THREE.BoxGeometry(3.2, 0.15, 2.2);
+            const panelMat = new THREE.MeshStandardMaterial({ color: 0x065f46, roughness: 0.3, metalness: 0.6 });
+            components['panel-solar'] = new THREE.Mesh(panelGeo, panelMat);
+            components['panel-solar'].position.set(0, 2.08, 0);
+            components['panel-solar'].userData = { name: 'panel-solar' };
+            components['panel-solar'].castShadow = true;
+            group.add(components['panel-solar']);
+            originalPos['panel-solar'] = components['panel-solar'].position.clone();
+            // Celdas solares
+            for (let i = 0; i < 4; i++) for (let j = 0; j < 2; j++) {
+                const celda = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.75), new THREE.MeshStandardMaterial({ color: 0x022c22, roughness: 0.1, metalness: 0.9, emissive: 0x004433, emissiveIntensity: 0.2 }));
+                celda.rotation.x = -Math.PI / 2;
+                celda.position.set(-0.825 + i * 0.55, 0.08, -0.375 + j * 0.75);
+                components['panel-solar'].add(celda);
+            }
+            // Sensores
+            const sensors = [
+                { name: 'sensor-temp', color: 0xdc2626, y: 1.2 },
+                { name: 'sensor-hum', color: 0x2563eb, y: 0 },
+                { name: 'sensor-pres', color: 0x7c3aed, y: -1.2 }
+            ];
+            sensors.forEach(s => {
+                components[s.name] = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.5, 16), new THREE.MeshStandardMaterial({ color: s.color, roughness: 0.4, metalness: 0.4 }));
+                components[s.name].position.set(1.55, s.y, 0);
+                components[s.name].rotation.z = Math.PI / 2;
+                components[s.name].userData = { name: s.name };
+                const ring = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.03, 8, 16), new THREE.MeshStandardMaterial({ color: s.color, emissive: s.color, emissiveIntensity: 0.3 }));
+                ring.rotation.x = Math.PI / 2;
+                components[s.name].add(ring);
+                group.add(components[s.name]);
+                originalPos[s.name] = components[s.name].position.clone();
+            });
+            // LEDs
+            const ledColors = [0x22c55e, 0xeab308, 0xef4444];
+            components['leds'] = new THREE.Group();
+            ledColors.forEach((c, i) => {
+                const led = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16, 16), new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.6, roughness: 0.2 }));
+                led.position.set(-0.5 + i * 0.5, -1.3, 1.05);
+                led.userData = { ledIndex: i, baseColor: c };
+                components['leds'].add(led);
+            });
+            components['leds'].userData = { name: 'leds' };
+            group.add(components['leds']);
+            originalPos['leds'] = components['leds'].position.clone();
+            // Bocina - movida para no superponerse con LEDs
+            components['bocina'] = new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.6, 16, 1, true), new THREE.MeshStandardMaterial({ color: 0xea580c, roughness: 0.5, metalness: 0.3, side: THREE.DoubleSide }));
+            components['bocina'].position.set(-1.6, -0.5, 0);
+            components['bocina'].rotation.z = Math.PI / 2;
+            components['bocina'].userData = { name: 'bocina' };
+            const grill = new THREE.Mesh(new THREE.CircleGeometry(0.2, 16), new THREE.MeshStandardMaterial({ color: 0x1f2937, roughness: 0.8 }));
+            grill.position.y = -0.31;
+            grill.rotation.x = Math.PI / 2;
+            components['bocina'].add(grill);
+            group.add(components['bocina']);
+            originalPos['bocina'] = components['bocina'].position.clone();
+            // Braille
+            components['braille'] = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.4, 0.12), new THREE.MeshStandardMaterial({ color: 0x6b7280, roughness: 0.7, metalness: 0.1 }));
+            components['braille'].position.set(0, -0.8, 1.06);
+            components['braille'].userData = { name: 'braille' };
+            for (let row = 0; row < 3; row++) for (let col = 0; col < 8; col++) {
+                const dot = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.06, 8), new THREE.MeshStandardMaterial({ color: 0x1f2937 }));
+                dot.position.set(-0.525 + col * 0.15, -0.1 + row * 0.1, 0.06);
+                components['braille'].add(dot);
+            }
+            group.add(components['braille']);
+            originalPos['braille'] = components['braille'].position.clone();
+            // Base
+            const base = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.8, 0.5, 32), new THREE.MeshStandardMaterial({ color: 0x374151, roughness: 0.8 }));
+            base.position.set(0, -2.25, 0);
+            base.receiveShadow = true;
+            group.add(base);
+            const poste = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.5, 16), new THREE.MeshStandardMaterial({ color: 0x374151 }));
+            poste.position.set(0, -1.25, 0);
+            group.add(poste);
+            totuGroup = group;
+            scene.add(totuGroup);
+            const grid = new THREE.GridHelper(20, 20, 0x10b981, 0x1e293b);
+            grid.position.y = -2.5;
+            scene.add(grid);
+            // Inicializar pantalla LCD con modo sunny por defecto
+            WeatherSys.setWeather('sunny');
+            // Forzar actualización inmediata de la pantalla
+            setTimeout(() => {
+                updateScreen('sunny', 28);
+                if (screenTexture) screenTexture.needsUpdate = true;
+            }, 100);
+        }
+
+        function updateScreen(weather, temp) {
+            if (!screenCtx) return;
+            const w = 512, h = 384;
+            const grads = { sunny: ['#fef3c7', '#fbbf24'], rainy: ['#dbeafe', '#60a5fa'], stormy: ['#e9d5ff', '#a78bfa'], cloudy: ['#f3f4f6', '#9ca3af'], windy: ['#d1fae5', '#34d399'] };
+            const g = screenCtx.createLinearGradient(0, 0, 0, h);
+            const colors = grads[weather] || grads.sunny;
+            g.addColorStop(0, colors[0]);
+            g.addColorStop(1, colors[1]);
+            screenCtx.fillStyle = g;
+            screenCtx.fillRect(0, 0, w, h);
+            screenCtx.strokeStyle = '#059669';
+            screenCtx.lineWidth = 8;
+            screenCtx.strokeRect(10, 10, w - 20, h - 20);
+            screenCtx.fillStyle = '#064e3b';
+            screenCtx.font = 'bold 36px Arial';
+            screenCtx.textAlign = 'center';
+            screenCtx.fillText('TOTU', w / 2, 55);
+            const icons = { sunny: '☀️', rainy: '🌧️', stormy: '⚡', cloudy: '☁️', windy: '💨' };
+            screenCtx.font = '80px Arial';
+            screenCtx.fillText(icons[weather] || '☀️', w / 2, 160);
+            screenCtx.fillStyle = '#1f2937';
+            screenCtx.font = 'bold 72px Arial';
+            screenCtx.fillText(`${Math.round(temp)}°C`, w / 2, 260);
+            screenCtx.font = '28px Arial';
+            const labels = { sunny: 'Soleado', rainy: 'Lluvia', stormy: 'Tormenta', cloudy: 'Nublado', windy: 'Ventoso' };
+            screenCtx.fillText(labels[weather] || 'Soleado', w / 2, 310);
+            const now = new Date();
+            screenCtx.font = '20px Arial';
+            screenCtx.fillStyle = '#4b5563';
+            screenCtx.fillText(`${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`, w / 2, 355);
+            if (screenTexture) screenTexture.needsUpdate = true;
+        }
+
+        function updateLEDs(weather) {
+            if (!components['leds']) return;
+            const states = { sunny: [0x22c55e, 0x1f2937, 0x1f2937], rainy: [0x1f2937, 0xeab308, 0x1f2937], stormy: [0x1f2937, 0x1f2937, 0xef4444], cloudy: [0x1f2937, 0xeab308, 0x1f2937], windy: [0x22c55e, 0xeab308, 0x1f2937] };
+            const s = states[weather] || states.sunny;
+            components['leds'].children.forEach((led, i) => {
+                led.material.color.setHex(s[i]);
+                led.material.emissive.setHex(s[i]);
+                led.material.emissiveIntensity = s[i] === 0x1f2937 ? 0.1 : 0.8;
+            });
+        }
+
+        function onMove(e) {
+            const container = document.getElementById('totu-canvas').parentElement;
+            const rect = container.getBoundingClientRect();
+            mouse.x = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
+            mouse.y = -((e.clientY - rect.top) / container.clientHeight) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+            
+            // Buscar en todos los objetos de la escena relevantes
+            const intersects = raycaster.intersectObjects(totuGroup.children, true);
+            let found = null;
+            
+            if (intersects.length > 0) {
+                // Recorrer la jerarquía hacia arriba para encontrar el componente con nombre
+                let obj = intersects[0].object;
+                while (obj) {
+                    if (obj.userData && obj.userData.name && compInfo[obj.userData.name]) {
+                        found = obj.userData.name;
+                        break;
+                    }
+                    obj = obj.parent;
+                    if (obj === scene) break;
+                }
+            }
+            
+            const prevHovered = hovered;
+            hovered = found;
+            
+            if (found !== prevHovered) {
+                const canvas = document.getElementById('totu-canvas');
+                canvas.style.cursor = found ? 'pointer' : 'grab';
+                
+                // Highlight visual en hover - restaurar anterior primero
+                if (prevHovered && components[prevHovered]) {
+                    components[prevHovered].scale.setScalar(1);
+                }
+                // Aplicar escala al nuevo
+                if (found && components[found]) {
+                    components[found].scale.setScalar(1.03);
+                }
+            }
+        }
+
+        function onClick(e) {
+            // No hacer nada si se hizo click en un botón
+            if (e.target.closest('.btn')) return;
+            
+            AudioCtrl.init();
+            
+            // Recalcular raycast en el momento del click
+            const container = document.getElementById('totu-canvas').parentElement;
+            const rect = container.getBoundingClientRect();
+            mouse.x = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
+            mouse.y = -((e.clientY - rect.top) / container.clientHeight) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+            
+            const intersects = raycaster.intersectObjects(totuGroup.children, true);
+            let clicked = null;
+            
+            if (intersects.length > 0) {
+                let obj = intersects[0].object;
+                while (obj) {
+                    if (obj.userData && obj.userData.name && compInfo[obj.userData.name]) {
+                        clicked = obj.userData.name;
+                        break;
+                    }
+                    obj = obj.parent;
+                    if (obj === scene) break;
+                }
+            }
+            
+            if (clicked) {
+                selectComp(clicked);
+                AudioCtrl.playClick();
+                
+                // Efecto visual de pulso
+                if (components[clicked]) {
+                    const originalScale = components[clicked].scale.x;
+                    components[clicked].scale.setScalar(originalScale * 1.1);
+                    setTimeout(() => {
+                        components[clicked].scale.setScalar(originalScale);
+                    }, 200);
+                }
+                
+                console.log('Click en componente:', clicked);
+            } else {
+                // Click en el canvas pero no en un componente - cerrar panel
+                document.getElementById('component-info').classList.remove('active');
+                document.querySelectorAll('.components-legend li').forEach(li => li.classList.remove('active'));
+            }
+        }
+
+        function selectComp(name) {
+            selected = name;
+            const info = compInfo[name];
+            const panel = document.getElementById('component-info');
+            
+            if (!info || !panel) {
+                console.error('No se encontró info o panel para:', name);
+                return;
+            }
+            
+            // Actualizar contenido
+            document.getElementById('component-title').textContent = info.title;
+            document.getElementById('component-icon').innerHTML = `<i class="fas ${info.icon}"></i>`;
+            document.getElementById('component-description').textContent = info.desc;
+            document.getElementById('component-specs').innerHTML = info.specs.map(s => 
+                `<div style="display:flex;justify-content:space-between;padding:0.6rem 0;font-size:0.9rem;color:rgba(255,255,255,0.9);border-bottom:1px solid rgba(255,255,255,0.15);"><span>${s.l}:</span><span style="color:#34d399;font-weight:700;">${s.v}</span></div>`
+            ).join('');
+            
+            // Mostrar panel con animación
+            panel.classList.add('active');
+            panel.style.transform = 'translateX(0)';
+            panel.style.opacity = '1';
+            panel.style.pointerEvents = 'all';
+            
+            console.log('✓ Componente seleccionado:', name, info.title);
+        }
+
+        function animatePos(obj, target, dur) {
+            const start = obj.position.clone();
+            const t0 = Date.now();
+            function update() {
+                const p = Math.min((Date.now() - t0) / dur, 1);
+                const e = 1 - Math.pow(1 - p, 3);
+                obj.position.set(start.x + (target.x - start.x) * e, start.y + (target.y - start.y) * e, start.z + (target.z - start.z) * e);
+                obj.updateMatrix();
+                if (p < 1) requestAnimationFrame(update);
+            }
+            update();
+        }
+
+        function explode() {
+            if (isExploded) return;
+            isExploded = true;
+            isAutoRotating = false;
+            AudioCtrl.playExplode();
+            // Animación ultra rápida para respuesta inmediata
+            Object.keys(components).forEach(k => {
+                if (explodedPos[k] && originalPos[k]) animatePos(components[k], explodedPos[k], 150);
+            });
+        }
+
+        function assemble() {
+            if (!isExploded) return;
+            isExploded = false;
+            isAutoRotating = true;
+            AudioCtrl.playAssemble();
+            // Animación ultra rápida para respuesta inmediata
+            Object.keys(components).forEach(k => {
+                if (originalPos[k]) animatePos(components[k], originalPos[k], 120);
+            });
+        }
+
+        let lastScreenUpdate = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            if (isAutoRotating && !isExploded && totuGroup) totuGroup.rotation.y += 0.003;
+            // Actualizar pantalla LCD SIEMPRE - sin delay
+            if (screenTexture) {
+                const w = WeatherSys.current;
+                updateScreen(w, WeatherSys.states[w].temp);
+            }
+            WeatherSys.update();
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Event listeners - ARREGLADOS
+        document.getElementById('btn-explode')?.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            AudioCtrl.init(); 
+            explode(); 
+            // Mostrar toast con instrucciones
+            showToast('Toca cada componente para ver su información', 'info');
+        });
+        
+        document.getElementById('btn-assemble')?.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            AudioCtrl.init(); 
+            assemble(); 
+        });
+        
+        document.getElementById('btn-rotate')?.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            isAutoRotating = !isAutoRotating; 
+            e.currentTarget.innerHTML = isAutoRotating ? '<i class="fas fa-sync-alt"></i> Auto-rotar' : '<i class="fas fa-stop"></i> Detener'; 
+        });
+        
+        document.getElementById('btn-weather')?.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            AudioCtrl.init(); 
+            WeatherSys.cycle(); 
+        });
+        
+        document.getElementById('btn-sound')?.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            AudioCtrl.init(); 
+            const en = AudioCtrl.toggle(); 
+            e.currentTarget.innerHTML = en ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>'; 
+            showToast(en ? 'Sonido activado' : 'Sonido desactivado', 'info');
+        });
+        
+        // Botón cerrar panel - ARREGLADO
+        const closeBtn = document.getElementById('close-info-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const panel = document.getElementById('component-info');
+                panel.classList.remove('active');
+                panel.style.transform = 'translateX(-150%)';
+                panel.style.opacity = '0';
+                document.querySelectorAll('.components-legend li').forEach(li => li.classList.remove('active'));
+            });
+            // Efecto hover
+            closeBtn.addEventListener('mouseenter', () => {
+                closeBtn.style.background = 'rgba(239,68,68,0.3)';
+                closeBtn.style.color = '#fff';
+            });
+            closeBtn.addEventListener('mouseleave', () => {
+                closeBtn.style.background = 'rgba(255,255,255,0.1)';
+                closeBtn.style.color = 'rgba(255,255,255,0.8)';
+            });
+        }
+        
+        // Leyenda de componentes - ARREGLADO para abrir panel
+        document.querySelectorAll('.components-legend li').forEach(li => {
+            li.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                AudioCtrl.init();
+                const component = li.dataset.component;
+                if (component && compInfo[component]) {
+                    selectComp(component);
+                    // Highlight visual en la lista
+                    document.querySelectorAll('.components-legend li').forEach(l => l.classList.remove('active'));
+                    li.classList.add('active');
+                }
+            });
+            // Efecto hover en la lista
+            li.addEventListener('mouseenter', () => {
+                li.style.background = 'rgba(255,255,255,0.15)';
+            });
+            li.addEventListener('mouseleave', () => {
+                if (!li.classList.contains('active')) {
+                    li.style.background = 'transparent';
+                }
+            });
+        });
+        
+        // Inicializar audio solo si el usuario interactúa con el canvas 3D
+        document.getElementById('totu-canvas')?.addEventListener('click', function initAudioOnce() { 
+            AudioCtrl.init(); 
+            this.removeEventListener('click', initAudioOnce); 
+        }, { once: true });
+        
+        // Función para mostrar toast notifications
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'info' ? 'info-circle' : 'check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            toast.style.cssText = `
+                background: rgba(15, 23, 42, 0.95);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                border: 1px solid rgba(255,255,255,0.1);
+                transform: translateY(100px);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 1000;
+            `;
+            
+            container.appendChild(toast);
+            
+            // Animar entrada
+            requestAnimationFrame(() => {
+                toast.style.transform = 'translateY(0)';
+                toast.style.opacity = '1';
+            });
+            
+            // Remover después de 3 segundos
+            setTimeout(() => {
+                toast.style.transform = 'translateY(100px)';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguas Originarias - TOTU</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>TOTU</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="lenguas.html" class="active"><i class="fas fa-language"></i> Lenguas</a></li>
+                    <li><a href="braille.html"><i class="fas fa-hand-sparkles"></i> Braille</a></li>
+                    <li><a href="tiempo.html"><i class="fas fa-cloud-sun"></i> Tiempo</a></li>
+                    <li><a href="producto.html"><i class="fas fa-box-open"></i> Producto</a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Lenguas -->
+    <section class="hero" style="padding: 4rem 0; background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 50%, #fef9c3 100%);">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div class="hero-badge" style="background: linear-gradient(135deg, #d97706 0%, #92400e 100%); color: white;">
+                    <i class="fas fa-users"></i> Más de 150,000 personas
+                </div>
+                <h1 style="color: #78350f; margin-bottom: 1rem;">Lenguas Originarias del Chaco</h1>
+                <p style="color: #92400e; font-size: 1.125rem; max-width: 100%;">
+                    En el Chaco hay más de 150,000 personas que hablan lenguas originarias. 
+                    TOTU incluye soporte para Qom, Wichí y Moqoví.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lenguas Cards - Nueva cuadrícula limpia -->
+    <section style="padding: 4rem 0; background: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                
+                <!-- Qom Card -->
+                <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid var(--qom-color); transition: all 0.3s ease;">
+                    <div style="background: linear-gradient(135deg, var(--qom-color) 0%, #0d9488 100%); padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-comments" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Lengua Qom</h3>
+                            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Toba - Familia Guaycurú</p>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 1.5rem;">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=250&fit=crop" 
+                             alt="Montañas Chaco" 
+                             style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <p style="text-align: center; font-size: 0.875rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.5rem;">Comunidades Qom del Chaco argentino</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--qom-color); font-size: 0.9rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-info-circle"></i> Información
+                            </h4>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed #e2e8f0;">
+                                    <span>Hablantes:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">~60,000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed #e2e8f0;">
+                                    <span>Ubicación:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">Chaco, Formosa, Santa Fe</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
+                                    <span>Familia:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">Guaycurú del Chaco</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--qom-light); padding: 1rem; border-radius: 0.75rem; border-left: 4px solid var(--qom-color);">
+                            <h4 style="color: var(--qom-color); font-size: 0.85rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-cloud-sun"></i> Vocabulario Meteorológico
+                            </h4>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary); display: grid; gap: 0.4rem;">
+                                <div><strong style="color: var(--text-primary);">N"aaxat:</strong> Día caluroso</div>
+                                <div><strong style="color: var(--text-primary);">Qatax:</strong> Nube, nublado</div>
+                                <div><strong style="color: var(--text-primary);">Tatái:</strong> Sol, día soleado</div>
+                                <div><strong style="color: var(--text-primary);">Latax:</strong> Lluvia</div>
+                                <div><strong style="color: var(--text-primary);">Nañat:</strong> Día frío</div>
+                                <div><strong style="color: var(--text-primary);">Naxog:</strong> Viento, aire</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wichí Card -->
+                <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid var(--wichi-color); transition: all 0.3s ease;">
+                    <div style="background: linear-gradient(135deg, var(--wichi-color) 0%, #0369a1 100%); padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-comments" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Lengua Wichí</h3>
+                            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Mataco-Mataguayo</p>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 1.5rem;">
+                        <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400&h=250&fit=crop" 
+                             alt="Paisaje Chaco" 
+                             style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <p style="text-align: center; font-size: 0.875rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.5rem;">Comunidades Wichí de la región del Bermejo</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--wichi-color); font-size: 0.9rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-font"></i> Alfabeto de Morillo (1998)
+                            </h4>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed #e2e8f0;">
+                                    <span>Vocales:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">8 (incluye nasalizadas)</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed #e2e8f0;">
+                                    <span>Consonantes:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">39</span>
+                                </div>
+                                <div style="padding: 0.5rem 0;">
+                                    <span style="display: block; margin-bottom: 0.25rem;">Principio:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">Un sonido = una representación</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--wichi-light); padding: 1rem; border-radius: 0.75rem; border-left: 4px solid var(--wichi-color);">
+                            <h4 style="color: var(--wichi-color); font-size: 0.85rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-cloud-sun"></i> Vocabulario Meteorológico
+                            </h4>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary); display: grid; gap: 0.4rem;">
+                                <div><strong style="color: var(--text-primary);">Wih:</strong> Sol</div>
+                                <div><strong style="color: var(--text-primary);">Lham:</strong> Lluvia</div>
+                                <div><strong style="color: var(--text-primary);">Nolh:</strong> Frío</div>
+                                <div><strong style="color: var(--text-primary);">T'oj:</strong> Nube</div>
+                                <div><strong style="color: var(--text-primary);">Tham:</strong> Calor</div>
+                            </div>
+                            <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed #bae6fd; font-style: italic; font-size: 0.75rem; color: var(--wichi-color);">
+                                "Lham w'aj tham" - Llueve y hace calor
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moqoví Card -->
+                <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid var(--moqovi-color); transition: all 0.3s ease;">
+                    <div style="background: linear-gradient(135deg, var(--moqovi-color) 0%, #6d28d9 100%); padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-comments" style="font-size: 1.5rem; color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Lengua Moqoví</h3>
+                            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem;">Mocoví - Familia Guaycurú</p>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 1.5rem;">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop" 
+                             alt="Atardecer" 
+                             style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <p style="text-align: center; font-size: 0.875rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.5rem;">Comunidades Moqoví del Chaco central</p>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--moqovi-color); font-size: 0.9rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-info-circle"></i> Información
+                            </h4>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed #e2e8f0;">
+                                    <span>Hablantes:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">~7,000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed #e2e8f0;">
+                                    <span>Ubicación:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">Sur del Chaco, Santa Fe</span>
+                                </div>
+                                <div style="padding: 0.5rem 0;">
+                                    <span style="display: block; margin-bottom: 0.25rem;">Sistema:</span>
+                                    <span style="font-weight: 600; color: var(--text-primary);">Demonstrativos complejos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--moqovi-light); padding: 1rem; border-radius: 0.75rem; border-left: 4px solid var(--moqovi-color);">
+                            <h4 style="color: var(--moqovi-color); font-size: 0.85rem; margin-bottom: 0.75rem;">
+                                <i class="fas fa-book"></i> Sistema Demonstrativo
+                            </h4>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary); display: grid; gap: 0.3rem; margin-bottom: 0.75rem;">
+                                <div><strong style="color: var(--text-primary);">Ca-:</strong> El/la ausente</div>
+                                <div><strong style="color: var(--text-primary);">Da-:</strong> El/la parado/a</div>
+                                <div><strong style="color: var(--text-primary);">Na-:</strong> El/la que viene</div>
+                                <div><strong style="color: var(--text-primary);">Yi-:</strong> El/la acostado/a</div>
+                            </div>
+                            <div style="padding-top: 0.75rem; border-top: 1px dashed #ddd6fe;">
+                                <div style="font-size: 0.75rem; color: var(--moqovi-color); font-style: italic; margin-bottom: 0.25rem;">Vocabulario:</div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary);">
+                                    <strong>Avit:</strong> Tarde | <strong>Ayo:</strong> Vuela
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Importancia Section -->
+            <div style="margin-top: 3rem; background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 100%); padding: 2rem; border-radius: 1rem; border: 2px solid #fed7aa;">
+                <h3 style="color: #92400e; margin-bottom: 1rem; text-align: center;">
+                    <i class="fas fa-heart"></i> Importancia de la Inclusión Lingüística
+                </h3>
+                <p style="color: #78350f; text-align: center; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    El Chaco argentino alberga una rica diversidad lingüística. TOTU reconoce que el acceso 
+                    a la información meteorológica es un derecho fundamental disponible en las lenguas que las comunidades hablan.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: white; padding: 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--qom-color);">150k+</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">Hablan lenguas originarias</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--braille-color);">10k+</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">Con discapacidad visual</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--wichi-color);">25+</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">Localidades sin internet</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--secondary);">4</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">Lenguas soportadas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>TOTU</span>
+                    </div>
+                    <p>Tótem Observacional del Tiempo Universal<br>Avisándote del tiempo; todo el tiempo.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="lenguas.html"><i class="fas fa-chevron-right"></i> Lenguas Originarias</a></li>
+                        <li><a href="braille.html"><i class="fas fa-chevron-right"></i> Sistema Braille</a></li>
+                        <li><a href="tiempo.html"><i class="fas fa-chevron-right"></i> Tiempo Actual</a></li>
+                        <li><a href="producto.html"><i class="fas fa-chevron-right"></i> El Producto</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-lenguas">
+                    <h4>Lenguas</h4>
+                    <div>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Qom</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Wichí</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Moqoví</span>
+                        <span class="lengua-tag"><i class="fas fa-braille"></i> Braille</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Contacto</h4>
+                    <div class="social-links">
+                        <a href="mailto:totu.proyecto@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOTU Project. Todos los derechos reservados.</p>
+                <p>ITESA "Jorge A. Newbery" - Resistencia, Chaco</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (menuToggle) menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('totu-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('totu-theme', newTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        initTheme();
+    </script>
+</body>
+</html>
