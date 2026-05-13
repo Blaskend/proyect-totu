@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí - TOTU</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-item { cursor: zoom-in; }
+        #lightbox {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            z-index: 9999; align-items: center; justify-content: center; padding: 2rem;
+        }
+        #lightbox.active { display: flex; }
+        #lightbox img {
+            max-width: 90vw; max-height: 85vh; border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5); object-fit: contain;
+        }
+        #lightbox .lightbox-close {
+            position: absolute; top: 1.5rem; right: 2rem; color: white; font-size: 2rem;
+            cursor: pointer; opacity: 0.8; transition: opacity 0.2s;
+        }
+        #lightbox .lightbox-close:hover { opacity: 1; }
+        #lightbox .lightbox-caption {
+            position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center;
+            color: white; font-size: 1rem; font-weight: 500; text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>TOTU</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="sobre-mi.html" class="active"><i class="fas fa-user"></i> Sobre mí</a></li>
+                    <li><a href="lenguas.html"><i class="fas fa-language"></i> Lenguas</a></li>
+                    <li><a href="braille.html"><i class="fas fa-hand-sparkles"></i> Braille</a></li>
+                    <li><a href="tiempo.html"><i class="fas fa-cloud-sun"></i> Tiempo</a></li>
+                    <li><a href="producto.html"><i class="fas fa-box-open"></i> Producto</a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 3rem 0; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-mint) 100%);">
+        <div class="container">
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <div class="hero-badge" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white;">
+                    <i class="fas fa-user"></i> Conoce al creador de TOTU
+                </div>
+                <h1 style="color: var(--primary-dark); margin-bottom: 1rem;">Sobre mí</h1>
+                <p class="hero-subtitle" style="max-width: 100%; color: var(--text-primary);">
+                    La historia detrás del proyecto, desde una idea en el Chaco hasta una solución real para comunidades del NEA.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre el creador -->
+    <section class="section" style="background: linear-gradient(135deg, var(--bg-mint) 0%, var(--bg-cream) 50%, var(--bg-light) 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> Nuestra Historia</h2>
+                <p>El camino de TOTU desde una idea hasta una solución real para comunidades del Chaco</p>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto 4rem auto; text-align: center;">
+                <img src="FOTOS/Emprende%20U%20Cordoba%202025.jpg" alt="Franco Gómez" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem auto; display: block; box-shadow: 0 10px 30px rgba(16,185,129,0.3); border: 4px solid white;">
+                <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Franco Gómez</h3>
+                <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 1rem;">Estudiante de la Tecnicatura Superior en Meteorología - ITESA "Jorge A. Newbery"</p>
+                <p style="color: var(--text-primary); line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                    Todo comenzó en un aula del Chaco, con la idea de que la tecnología meteorológica no debería ser un privilegio.
+                    Quería que mi abuela, que no ve bien, pudiera saber si venía lluvia. Quería que mis vecinos qom supieran
+                    si el día de mañana iba a ser bueno para sembrar. Así nació <strong>TOTU</strong>: un tótem hecho con botellas
+                    recicladas, que habla, que escribe en braille, y que anuncia el tiempo en las lenguas de nuestra tierra.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <span style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-map-marker-alt"></i> Resistencia, Chaco</span>
+                    <span style="background: linear-gradient(135deg, #0d9488, #14b8a6); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-graduation-cap"></i> ITESA Newbery</span>
+                    <span style="background: linear-gradient(135deg, #7c3aed, #8b5cf6); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-trophy"></i> Emprende U Córdoba 2025</span>
+                </div>
+            </div>
+
+            <!-- Linea de tiempo -->
+            <div style="position: relative; max-width: 1000px; margin: 0 auto 4rem auto;">
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #059669, #10b981, #0d9488); transform: translateX(-50%); border-radius: 2px;"></div>
+
+                <div style="display: flex; align-items: center; margin-bottom: 3rem; position: relative;">
+                    <div style="flex: 1; text-align: right; padding-right: 2rem;">
+                        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 4px solid #059669;">
+                            <h4 style="color: #059669; margin-bottom: 0.5rem;"><i class="fas fa-lightbulb"></i> La idea</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Primeras maquetas en cartón y pruebas con sensores básicos en el taller de la escuela.</p>
+                        </div>
+                    </div>
+                    <div style="width: 24px; height: 24px; background: #059669; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #059669; z-index: 2; flex-shrink: 0;"></div>
+                    <div style="flex: 1; padding-left: 2rem;">
+                        <img src="FOTOS/maqueta.jpg" alt="Maqueta del TOTU" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); object-fit: cover; height: 180px;">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; margin-bottom: 3rem; position: relative;">
+                    <div style="flex: 1; text-align: right; padding-right: 2rem;">
+                        <img src="FOTOS/IMG_20251120_202325.jpg" alt="Trabajo en clase" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); object-fit: cover; height: 180px; margin-left: auto; display: block;">
+                    </div>
+                    <div style="width: 24px; height: 24px; background: #0d9488; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #0d9488; z-index: 2; flex-shrink: 0;"></div>
+                    <div style="flex: 1; padding-left: 2rem;">
+                        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-right: 4px solid #0d9488;">
+                            <h4 style="color: #0d9488; margin-bottom: 0.5rem;"><i class="fas fa-cogs"></i> Desarrollo</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Meses de pruebas, fallos y aprendizajes. Soldando sensores, programando el firmware y perfeccionando el sistema Braille.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; margin-bottom: 3rem; position: relative;">
+                    <div style="flex: 1; text-align: right; padding-right: 2rem;">
+                        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 4px solid #7c3aed;">
+                            <h4 style="color: #7c3aed; margin-bottom: 0.5rem;"><i class="fas fa-award"></i> Emprende U Córdoba 2025</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Presentación del proyecto en la Universidad Nacional de Córdoba, compitiendo con emprendedores de todo el país.</p>
+                        </div>
+                    </div>
+                    <div style="width: 24px; height: 24px; background: #7c3aed; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #7c3aed; z-index: 2; flex-shrink: 0;"></div>
+                    <div style="flex: 1; padding-left: 2rem;">
+                        <img src="FOTOS/Emprende%20U%20Cordoba%202025.jpg" alt="Emprende U Córdoba" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); object-fit: cover; height: 180px;">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; margin-bottom: 3rem; position: relative;">
+                    <div style="flex: 1; text-align: right; padding-right: 2rem;">
+                        <img src="FOTOS/Innpulsate%20Santa%20Fe%202025.jpg" alt="Innpulsate Santa Fe" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); object-fit: cover; height: 180px; margin-left: auto; display: block;">
+                    </div>
+                    <div style="width: 24px; height: 24px; background: #f59e0b; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #f59e0b; z-index: 2; flex-shrink: 0;"></div>
+                    <div style="flex: 1; padding-left: 2rem;">
+                        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-right: 4px solid #f59e0b;">
+                            <h4 style="color: #d97706; margin-bottom: 0.5rem;"><i class="fas fa-rocket"></i> Innpulsate Santa Fe 2025</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Llevando TOTU a nuevas provincias. Networking con mentores, inversionistas y otros emprendedores tecnológicos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; position: relative;">
+                    <div style="flex: 1; text-align: right; padding-right: 2rem;">
+                        <div style="background: var(--card-bg); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 4px solid #059669;">
+                            <h4 style="color: #059669; margin-bottom: 0.5rem;"><i class="fas fa-broadcast-tower"></i> Hoy</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">TOTU sigue creciendo. Buscando llegar a cada rincón del Chaco y el NEA. Cada botella reciclada es un paso más cerca.</p>
+                        </div>
+                    </div>
+                    <div style="width: 24px; height: 24px; background: #059669; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #059669; z-index: 2; flex-shrink: 0;"></div>
+                    <div style="flex: 1; padding-left: 2rem;">
+                        <img src="FOTOS/totu.jpg" alt="TOTU actual" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); object-fit: cover; height: 180px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeria de fotos -->
+            <div class="section-header" style="margin-top: 4rem;">
+                <h2><i class="fas fa-images"></i> Galería</h2>
+                <p>Momentos que marcaron el camino de TOTU</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/Excibicion%20del%20proyecto%20totu%20en%20la%20institucion.jpg" alt="Exhibición en la institución" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-school"></i> Exhibición ITESA</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/excibicion.jpg" alt="Exhibición" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-chalkboard-teacher"></i> Presentación</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/IMAGEN%20CON%20DIRECTIVOS%20Y%20PROFESORES.jpg" alt="Con directivos y profesores" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-users"></i> Directivos y Profesores</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/IMAGEN%20CON%20PROFESORES%20Y%20COMPA%C3%91EROS.jpg" alt="Profesores y compañeros" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-user-friends"></i> Equipo y Compañeros</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/imagen%20de%20los%20sensores.jpg" alt="Sensores" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-microchip"></i> Sensores TOTU</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/en%20la%20radio%20Nordeste.jpg" alt="Radio Nordeste" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-microphone"></i> Radio Nordeste</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/TRABAJO%20EN%20CLASE%20.jpg" alt="Trabajo en clase" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-laptop-code"></i> Trabajo en Clase</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/IMG-20251015-WA0047(1).jpg" alt="Prototipo" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-wrench"></i> Prototipo</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                    <img src="FOTOS/Emprende%20U%20Cordoba%202025(1).jpg" alt="Emprende U Córdoba" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1.5rem 1rem 1rem;">
+                        <p style="color: white; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-award"></i> Emprende U 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>TOTU</span>
+                    </div>
+                    <p>Tótem Observacional del Tiempo Universal</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="sobre-mi.html"><i class="fas fa-chevron-right"></i> Sobre mí</a></li>
+                        <li><a href="lenguas.html"><i class="fas fa-chevron-right"></i> Lenguas Originarias</a></li>
+                        <li><a href="braille.html"><i class="fas fa-chevron-right"></i> Sistema Braille</a></li>
+                        <li><a href="tiempo.html"><i class="fas fa-chevron-right"></i> Tiempo Actual</a></li>
+                        <li><a href="producto.html"><i class="fas fa-chevron-right"></i> El Producto</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-lenguas">
+                    <h4>Lenguas</h4>
+                    <div>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Qom</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Wichí</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Moqoví</span>
+                        <span class="lengua-tag"><i class="fas fa-braille"></i> Braille</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Contacto</h4>
+                    <div class="social-links">
+                        <a href="mailto:totu.proyecto@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOTU Project. Todos los derechos reservados.</p>
+                <p>ITESA "Jorge A. Newbery" - Resistencia, Chaco</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        }
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('totu-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('totu-theme', newTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        // Lightbox gallery
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.innerHTML = '<i class="fas fa-times lightbox-close"></i><img src="" alt=""><div class="lightbox-caption"></div>';
+        document.body.appendChild(lightbox);
+
+        const lbImg = lightbox.querySelector('img');
+        const lbCaption = lightbox.querySelector('.lightbox-caption');
+        const lbClose = lightbox.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const caption = item.querySelector('div:last-child p');
+                lbImg.src = img.src;
+                lbImg.alt = img.alt;
+                lbCaption.innerHTML = caption ? caption.innerHTML : img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === lbClose) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        initTheme();
+    </script>
+</body>
+</html>

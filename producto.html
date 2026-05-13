@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Producto - TOTU</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>TOTU</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="lenguas.html"><i class="fas fa-language"></i> Lenguas</a></li>
+                    <li><a href="braille.html"><i class="fas fa-hand-sparkles"></i> Braille</a></li>
+                    <li><a href="tiempo.html"><i class="fas fa-cloud-sun"></i> Tiempo</a></li>
+                    <li><a href="producto.html" class="active"><i class="fas fa-box-open"></i> Producto</a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Hero -->
+    <section class="hero" style="padding: 3rem 0; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-mint) 100%);">
+        <div class="container">
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <div class="hero-badge" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white;">
+                    <i class="fas fa-star"></i> 90% más económico que la competencia
+                </div>
+                <h1 style="color: var(--primary-dark); margin-bottom: 1rem;">Conoce TOTU</h1>
+                <p class="hero-subtitle" style="max-width: 100%; color: var(--text-secondary);">
+                    Un tótem meteorológico modular, inclusivo y ecosostenible diseñado para comunidades del NEA argentino.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="section" style="padding-top: 2rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 3rem;">
+                <!-- Product Visual -->
+                <div style="display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); padding: 3rem; border-radius: var(--radius-2xl); border: 2px solid var(--border-color);">
+                    <div style="text-align: center;">
+                        <div class="totem-device" style="margin: 0 auto;">
+                            <div class="totem-screen">
+                                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                                <div class="temp-display">28°C</div>
+                                <div class="weather-desc">Tatái</div>
+                            </div>
+                            <div class="totem-lights">
+                                <span class="light green"></span>
+                                <span class="light yellow"></span>
+                                <span class="light red"></span>
+                            </div>
+                            <div class="braille-dots">⠎⠕⠇</div>
+                        </div>
+                        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <i class="fas fa-recycle" style="color: var(--success);"></i> 
+                            Carcasa de 20 botellas recicladas
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div>
+                    <h2 style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-bullseye"></i> Características Principales
+                    </h2>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                            <div style="width: 48px; height: 48px; background: var(--qom-light); color: var(--qom-color); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 0.25rem;">Multilingüe</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Soporte para Qom, Wichí, Moqoví y español</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                            <div style="width: 48px; height: 48px; background: var(--braille-light); color: var(--braille-color); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-hand-sparkles"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 0.25rem;">Accesible</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Sistema Braille integrado + audio + texturas táctiles</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                            <div style="width: 48px; height: 48px; background: var(--secondary-light); color: var(--secondary); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 0.25rem;">Ecosostenible</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">20 botellas de plástico recicladas por dispositivo</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                            <div style="width: 48px; height: 48px; background: var(--primary-light); color: var(--primary); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-wifi-slash" style="transform: rotate(45deg);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--text-primary); margin-bottom: 0.25rem;">Independiente</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Funciona sin internet mediante sensores propios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specs -->
+            <div style="background: white; border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 2rem; border: 2px solid var(--border-color);">
+                <h2 style="color: var(--primary); margin-bottom: 1.5rem; text-align: center;">
+                    <i class="fas fa-cogs"></i> Especificaciones Técnicas
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-microchip"></i> Sensores</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary); list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-thermometer-half" style="color: var(--warning); margin-right: 0.5rem;"></i> Temperatura (-40°C a +60°C)</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-tint" style="color: #3b82f6; margin-right: 0.5rem;"></i> Humedad (0-100%)</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-wind" style="color: #0d9488; margin-right: 0.5rem;"></i> Velocidad del viento</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-compass" style="color: #7c3aed; margin-right: 0.5rem;"></i> Dirección del viento</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-sun" style="color: var(--warning); margin-right: 0.5rem;"></i> Índice UV</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-palette"></i> Señalización</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary); list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-lightbulb" style="color: #22c55e; margin-right: 0.5rem;"></i> LED verde: Condiciones normales</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-lightbulb" style="color: #eab308; margin-right: 0.5rem;"></i> LED amarillo: Advertencia</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-lightbulb" style="color: #ef4444; margin-right: 0.5rem;"></i> LED rojo: Alerta</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-volume-up" style="color: var(--primary); margin-right: 0.5rem;"></i> Audio para alertas</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-braille" style="color: var(--braille-color); margin-right: 0.5rem;"></i> Panel Braille integrado</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-battery-three-quarters"></i> Alimentación</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary); list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-solar-panel" style="color: var(--warning); margin-right: 0.5rem;"></i> Panel solar integrado</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-battery-full" style="color: var(--success); margin-right: 0.5rem;"></i> Batería de respaldo</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed var(--border-color);"><i class="fas fa-plug" style="color: var(--primary); margin-right: 0.5rem;"></i> Conexión eléctrica opcional</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-moon" style="color: #7c3aed; margin-right: 0.5rem;"></i> Autonomía nocturna: 12h</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sectors -->
+            <div style="background: var(--bg-cream); border-radius: var(--radius-xl); padding: 2rem; border: 2px solid var(--border-color);">
+                <h2 style="color: var(--primary); margin-bottom: 1.5rem; text-align: center;">
+                    <i class="fas fa-users"></i> Sectores de Aplicación
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div style="text-align: center; padding: 1.5rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                        <i class="fas fa-hospital" style="font-size: 2.5rem; color: var(--qom-color); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text-primary);">Salud</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">Hospitales, sanatorios, centros de salud</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 1.5rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                        <i class="fas fa-school" style="font-size: 2.5rem; color: var(--wichi-color); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text-primary);">Educación</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">Escuelas agrotécnicas, institutos</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 1.5rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                        <i class="fas fa-seedling" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text-primary);">Agro</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">Viveros, granjas, cooperativas</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 1.5rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                        <i class="fas fa-home" style="font-size: 2.5rem; color: var(--moqovi-color); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--text-primary);">Comunidades</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary);">Localidades rurales, pueblos originarios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;"><i class="fas fa-rocket"></i> ¿Interesado en TOTU?</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Contactanos para conocer más sobre el producto, precios y opciones de instalación en tu organización.
+            </p>
+            <a href="contacto.html" class="btn btn-lg" style="background: white; color: var(--primary); font-weight: 600;">
+                <i class="fas fa-envelope"></i> Contactar
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>TOTU</span>
+                    </div>
+                    <p>Tótem Observacional del Tiempo Universal</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="lenguas.html"><i class="fas fa-chevron-right"></i> Lenguas Originarias</a></li>
+                        <li><a href="braille.html"><i class="fas fa-chevron-right"></i> Sistema Braille</a></li>
+                        <li><a href="tiempo.html"><i class="fas fa-chevron-right"></i> Tiempo Actual</a></li>
+                        <li><a href="producto.html"><i class="fas fa-chevron-right"></i> El Producto</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-lenguas">
+                    <h4>Lenguas</h4>
+                    <div>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Qom</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Wichí</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Moqoví</span>
+                        <span class="lengua-tag"><i class="fas fa-braille"></i> Braille</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Contacto</h4>
+                    <div class="social-links">
+                        <a href="mailto:totu.proyecto@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOTU Project. Todos los derechos reservados.</p>
+                <p>ITESA "Jorge A. Newbery" - Resistencia, Chaco</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        }
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('totu-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('totu-theme', newTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        initTheme();
+    </script>
+</body>
+</html>
