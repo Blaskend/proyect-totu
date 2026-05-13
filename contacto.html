@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - TOTU</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>TOTU</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="lenguas.html"><i class="fas fa-language"></i> Lenguas</a></li>
+                    <li><a href="braille.html"><i class="fas fa-hand-sparkles"></i> Braille</a></li>
+                    <li><a href="tiempo.html"><i class="fas fa-cloud-sun"></i> Tiempo</a></li>
+                    <li><a href="producto.html"><i class="fas fa-box-open"></i> Producto</a></li>
+                    <li><a href="contacto.html" class="active"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section style="padding: 4rem 0; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto; margin-bottom: 3rem;">
+                <div class="hero-badge" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white;">
+                    <i class="fas fa-paper-plane"></i> Estamos aquí para ayudarte
+                </div>
+                <h1 style="color: var(--primary-dark); margin-bottom: 1rem;">Contacto</h1>
+                <p style="color: var(--text-secondary); font-size: 1.125rem;">
+                    ¿Interesado en TOTU para tu organización? Escríbenos y te responderemos a la brevedad.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem;">
+                <!-- Contact Info -->
+                <div>
+                    <div style="background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid var(--border-color);">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="width: 48px; height: 48px; background: var(--primary); color: white; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.875rem; color: var(--primary); text-transform: uppercase; margin-bottom: 0.25rem;">Email</h4>
+                                <p style="color: var(--text-primary); font-weight: 500;">totu.proyecto@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid var(--border-color);">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(45deg, #f59e0b, #ec4899); color: white; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.875rem; color: var(--primary); text-transform: uppercase; margin-bottom: 0.25rem;">Instagram</h4>
+                                <p style="color: var(--text-primary); font-weight: 500;">@proyectototu</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid var(--border-color);">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="width: 48px; height: 48px; background: var(--secondary); color: white; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.875rem; color: var(--primary); text-transform: uppercase; margin-bottom: 0.25rem;">Ubicación</h4>
+                                <p style="color: var(--text-primary); font-weight: 500;">Resistencia, Chaco<br>ITESA "Jorge A. Newbery"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-cream); border-radius: 1rem; padding: 1.5rem; border: 2px solid #fed7aa;">
+                        <h4 style="color: #92400e; margin-bottom: 1rem;"><i class="fas fa-building"></i> Sectores que Atendemos</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed #fed7aa;"><i class="fas fa-hospital" style="color: var(--qom-color); margin-right: 0.5rem;"></i> <strong>Salud</strong> - Hospitales</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed #fed7aa;"><i class="fas fa-school" style="color: var(--wichi-color); margin-right: 0.5rem;"></i> <strong>Educación</strong> - Escuelas</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px dashed #fed7aa;"><i class="fas fa-seedling" style="color: var(--secondary); margin-right: 0.5rem;"></i> <strong>Agro</strong> - Viveros</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-home" style="color: var(--moqovi-color); margin-right: 0.5rem;"></i> <strong>Comunidades</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <form id="contactForm" style="background: white; border-radius: 1rem; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid var(--border-color);">
+                        <h3 style="color: var(--primary); margin-bottom: 1.5rem; text-align: center;">
+                            <i class="fas fa-paper-plane"></i> Envíanos un mensaje
+                        </h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Nombre *</label>
+                                <input type="text" name="nombre" required style="width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 0.95rem;">
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Email *</label>
+                                <input type="email" name="email" required style="width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 0.95rem;">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Teléfono</label>
+                            <input type="tel" name="telefono" style="width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 0.95rem;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Sector de Interés</label>
+                            <select name="sector" style="width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 0.95rem; background: white;">
+                                <option value="particular">Particular</option>
+                                <option value="salud">Salud - Hospital/Sanatorio</option>
+                                <option value="educacion">Educación - Escuela/Instituto</option>
+                                <option value="agro">Agro - Vivero/Granja</option>
+                                <option value="gobierno">Gobierno - Municipalidad/Ministerio</option>
+                            </select>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Asunto</label>
+                            <input type="text" name="asunto" placeholder="Ej: Consulta sobre dispositivo para escuela" style="width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 0.95rem;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Mensaje *</label>
+                            <textarea name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto o consulta..." style="width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-size: 0.95rem; resize: vertical;"></textarea>
+                        </div>
+                        
+                        <button type="submit" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; border-radius: 0.75rem; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                        
+                        <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+                            <i class="fas fa-lock"></i> Tu información está protegida
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section style="padding: 4rem 0; background: white;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="color: var(--primary);"><i class="fas fa-map-marked-alt"></i> Ubicación</h2>
+                <p style="color: var(--text-secondary);">Resistencia, Chaco - Argentina</p>
+            </div>
+            
+            <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 1rem; text-align: center; border: 2px solid var(--border-color);">
+                <i class="fas fa-map-marker-alt" style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--primary);">ITESA "Jorge A. Newbery"</h3>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+                    Resistencia, Provincia del Chaco, Argentina<br>
+                    Tecnicatura Superior en Meteorología
+                </p>
+                <img src="https://images.unsplash.com/photo-1597926660690-d6b2815e4fc4?w=800&h=400&fit=crop" 
+                     alt="Chaco Argentina" 
+                     style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 0.75rem; margin-top: 1.5rem;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>TOTU</span>
+                    </div>
+                    <p>Tótem Observacional del Tiempo Universal</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="lenguas.html"><i class="fas fa-chevron-right"></i> Lenguas Originarias</a></li>
+                        <li><a href="braille.html"><i class="fas fa-chevron-right"></i> Sistema Braille</a></li>
+                        <li><a href="tiempo.html"><i class="fas fa-chevron-right"></i> Tiempo Actual</a></li>
+                        <li><a href="producto.html"><i class="fas fa-chevron-right"></i> El Producto</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-lenguas">
+                    <h4>Lenguas</h4>
+                    <div>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Qom</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Wichí</span>
+                        <span class="lengua-tag"><i class="fas fa-comments"></i> Moqoví</span>
+                        <span class="lengua-tag"><i class="fas fa-braille"></i> Braille</span>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Contacto</h4>
+                    <div class="social-links">
+                        <a href="mailto:totu.proyecto@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOTU Project. Todos los derechos reservados.</p>
+                <p>ITESA "Jorge A. Newbery" - Resistencia, Chaco</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (menuToggle) menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('totu-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('totu-theme', newTheme);
+            if (themeToggle) {
+                const icon = themeToggle.querySelector('i');
+                if (icon) icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        initTheme();
+        
+        // Form
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Mensaje enviado correctamente. Te contactaremos pronto.', 'success');
+            this.reset();
+        });
+        
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            
+            const icons = { success: 'check-circle', error: 'exclamation-circle', warning: 'exclamation-triangle', info: 'info-circle' };
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<i class="fas fa-${icons[type]}"></i><span>${message}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
